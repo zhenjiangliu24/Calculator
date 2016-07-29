@@ -1,13 +1,16 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6211" systemVersion="14A298i" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6204"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Calculator" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -15,11 +18,463 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="dzV-j3-WgC">
+                                <rect key="frame" x="20" y="20" width="560" height="572"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="3zn-BJ-CdF">
+                                        <rect key="frame" x="0.0" y="0.0" width="560" height="86"/>
+                                        <color key="backgroundColor" red="0.16602494779999999" green="0.74859202049999995" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="270" id="R1E-wX-CWs"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="40"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                        <variation key="default">
+                                            <mask key="constraints">
+                                                <exclude reference="R1E-wX-CWs"/>
+                                            </mask>
+                                        </variation>
+                                    </label>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="wI4-MR-g3S">
+                                        <rect key="frame" x="0.0" y="96" width="560" height="476"/>
+                                        <subviews>
+                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="mHA-9E-j1E">
+                                                <rect key="frame" x="0.0" y="0.0" width="560" height="87"/>
+                                                <subviews>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="C2r-Rc-Pa3">
+                                                        <rect key="frame" x="0.0" y="0.0" width="132.5" height="87"/>
+                                                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" constant="60" id="2rb-Mm-iKq"/>
+                                                            <constraint firstAttribute="width" constant="60" id="FsX-Aa-6y6"/>
+                                                            <constraint firstAttribute="height" constant="60" id="bDW-47-yIN"/>
+                                                            <constraint firstAttribute="height" constant="60" id="rKw-xc-1nZ"/>
+                                                        </constraints>
+                                                        <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                        <state key="normal" title="×"/>
+                                                        <variation key="default">
+                                                            <mask key="constraints">
+                                                                <exclude reference="2rb-Mm-iKq"/>
+                                                                <exclude reference="FsX-Aa-6y6"/>
+                                                                <exclude reference="bDW-47-yIN"/>
+                                                                <exclude reference="rKw-xc-1nZ"/>
+                                                            </mask>
+                                                        </variation>
+                                                        <connections>
+                                                            <action selector="operationTouched:" destination="BYZ-38-t0r" eventType="touchUpInside" id="beE-5o-FvX"/>
+                                                        </connections>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mkp-OQ-yMc">
+                                                        <rect key="frame" x="142" y="0.0" width="132.5" height="87"/>
+                                                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="60" id="1Bf-u2-gnk"/>
+                                                            <constraint firstAttribute="width" constant="60" id="W6Z-fr-xJy"/>
+                                                        </constraints>
+                                                        <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                        <state key="normal" title="÷"/>
+                                                        <variation key="default">
+                                                            <mask key="constraints">
+                                                                <exclude reference="1Bf-u2-gnk"/>
+                                                                <exclude reference="W6Z-fr-xJy"/>
+                                                            </mask>
+                                                        </variation>
+                                                        <connections>
+                                                            <action selector="operationTouched:" destination="BYZ-38-t0r" eventType="touchUpInside" id="wy9-uK-N3t"/>
+                                                        </connections>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pFH-9g-5bw">
+                                                        <rect key="frame" x="285" y="0.0" width="132.5" height="87"/>
+                                                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="60" id="GWA-jl-51n"/>
+                                                            <constraint firstAttribute="width" constant="60" id="Rp4-d5-qkb"/>
+                                                        </constraints>
+                                                        <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                        <state key="normal" title="+"/>
+                                                        <variation key="default">
+                                                            <mask key="constraints">
+                                                                <exclude reference="GWA-jl-51n"/>
+                                                                <exclude reference="Rp4-d5-qkb"/>
+                                                            </mask>
+                                                        </variation>
+                                                        <connections>
+                                                            <action selector="operationTouched:" destination="BYZ-38-t0r" eventType="touchUpInside" id="4ux-yI-KKu"/>
+                                                        </connections>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MDP-ah-gw9">
+                                                        <rect key="frame" x="427" y="0.0" width="132.5" height="87"/>
+                                                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" constant="60" id="0TD-sg-ORf"/>
+                                                            <constraint firstAttribute="height" constant="60" id="6Lb-JG-dSy"/>
+                                                        </constraints>
+                                                        <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                        <state key="normal" title="−"/>
+                                                        <variation key="default">
+                                                            <mask key="constraints">
+                                                                <exclude reference="0TD-sg-ORf"/>
+                                                                <exclude reference="6Lb-JG-dSy"/>
+                                                            </mask>
+                                                        </variation>
+                                                        <connections>
+                                                            <action selector="operationTouched:" destination="BYZ-38-t0r" eventType="touchUpInside" id="vwy-dw-5Hb"/>
+                                                        </connections>
+                                                    </button>
+                                                </subviews>
+                                            </stackView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="P2S-Hy-vwu">
+                                                <rect key="frame" x="0.0" y="97" width="560" height="87.5"/>
+                                                <subviews>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wf6-nJ-i3p">
+                                                        <rect key="frame" x="0.0" y="0.0" width="132.5" height="87.5"/>
+                                                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" constant="60" id="UAb-Uq-mwp"/>
+                                                            <constraint firstAttribute="height" constant="60" id="v7J-oW-XtX"/>
+                                                        </constraints>
+                                                        <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                        <state key="normal" title="π"/>
+                                                        <variation key="default">
+                                                            <mask key="constraints">
+                                                                <exclude reference="UAb-Uq-mwp"/>
+                                                                <exclude reference="v7J-oW-XtX"/>
+                                                            </mask>
+                                                        </variation>
+                                                        <connections>
+                                                            <action selector="operationTouched:" destination="BYZ-38-t0r" eventType="touchUpInside" id="9Fl-I8-kPT"/>
+                                                        </connections>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xZg-p9-8eT">
+                                                        <rect key="frame" x="142" y="0.0" width="132.5" height="87.5"/>
+                                                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" constant="60" id="7Zw-EM-k2l"/>
+                                                            <constraint firstAttribute="height" constant="60" id="K8S-HE-kDF"/>
+                                                        </constraints>
+                                                        <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                        <state key="normal" title="7"/>
+                                                        <variation key="default">
+                                                            <mask key="constraints">
+                                                                <exclude reference="7Zw-EM-k2l"/>
+                                                                <exclude reference="K8S-HE-kDF"/>
+                                                            </mask>
+                                                        </variation>
+                                                        <connections>
+                                                            <action selector="digitsTouched:" destination="BYZ-38-t0r" eventType="touchUpInside" id="BUN-sv-f2X"/>
+                                                        </connections>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="B2l-on-hML">
+                                                        <rect key="frame" x="285" y="0.0" width="132.5" height="87.5"/>
+                                                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="60" id="aUk-Wm-rEj"/>
+                                                            <constraint firstAttribute="width" constant="60" id="g1F-gC-me8"/>
+                                                        </constraints>
+                                                        <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                        <state key="normal" title="8"/>
+                                                        <variation key="default">
+                                                            <mask key="constraints">
+                                                                <exclude reference="aUk-Wm-rEj"/>
+                                                                <exclude reference="g1F-gC-me8"/>
+                                                            </mask>
+                                                        </variation>
+                                                        <connections>
+                                                            <action selector="digitsTouched:" destination="BYZ-38-t0r" eventType="touchUpInside" id="uuo-Eu-M6K"/>
+                                                        </connections>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lm4-lX-ppt">
+                                                        <rect key="frame" x="427" y="0.0" width="132.5" height="87.5"/>
+                                                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="60" id="bzl-7g-hnB"/>
+                                                            <constraint firstAttribute="width" constant="60" id="j9d-P7-I7U"/>
+                                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="60" id="mcC-zn-CeB"/>
+                                                        </constraints>
+                                                        <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                        <state key="normal" title="9"/>
+                                                        <variation key="default">
+                                                            <mask key="constraints">
+                                                                <exclude reference="bzl-7g-hnB"/>
+                                                                <exclude reference="j9d-P7-I7U"/>
+                                                                <exclude reference="mcC-zn-CeB"/>
+                                                            </mask>
+                                                        </variation>
+                                                        <connections>
+                                                            <action selector="digitsTouched:" destination="BYZ-38-t0r" eventType="touchUpInside" id="gcQ-rU-YWW"/>
+                                                        </connections>
+                                                    </button>
+                                                </subviews>
+                                            </stackView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="kq7-CT-58q">
+                                                <rect key="frame" x="0.0" y="194" width="560" height="87"/>
+                                                <subviews>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cqs-u3-6zO">
+                                                        <rect key="frame" x="0.0" y="0.0" width="132.5" height="87"/>
+                                                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="60" id="Sj7-M1-tz5"/>
+                                                            <constraint firstAttribute="width" constant="60" id="txf-9k-VPv"/>
+                                                        </constraints>
+                                                        <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                        <state key="normal" title="√"/>
+                                                        <variation key="default">
+                                                            <mask key="constraints">
+                                                                <exclude reference="Sj7-M1-tz5"/>
+                                                                <exclude reference="txf-9k-VPv"/>
+                                                            </mask>
+                                                        </variation>
+                                                        <connections>
+                                                            <action selector="operationTouched:" destination="BYZ-38-t0r" eventType="touchUpInside" id="CtI-MW-hSZ"/>
+                                                        </connections>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4FD-hQ-Rij">
+                                                        <rect key="frame" x="142" y="0.0" width="132.5" height="87"/>
+                                                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="60" id="Gg3-TY-h9h"/>
+                                                            <constraint firstAttribute="width" constant="60" id="LS6-OG-2ua"/>
+                                                        </constraints>
+                                                        <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                        <state key="normal" title="4"/>
+                                                        <variation key="default">
+                                                            <mask key="constraints">
+                                                                <exclude reference="Gg3-TY-h9h"/>
+                                                                <exclude reference="LS6-OG-2ua"/>
+                                                            </mask>
+                                                        </variation>
+                                                        <connections>
+                                                            <action selector="digitsTouched:" destination="BYZ-38-t0r" eventType="touchUpInside" id="UYa-pL-DkL"/>
+                                                        </connections>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="O4p-cO-Lq9">
+                                                        <rect key="frame" x="285" y="0.0" width="132.5" height="87"/>
+                                                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" constant="60" id="aTB-gh-xJV"/>
+                                                            <constraint firstAttribute="height" constant="60" id="gW5-o1-D37"/>
+                                                        </constraints>
+                                                        <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                        <state key="normal" title="5"/>
+                                                        <variation key="default">
+                                                            <mask key="constraints">
+                                                                <exclude reference="aTB-gh-xJV"/>
+                                                                <exclude reference="gW5-o1-D37"/>
+                                                            </mask>
+                                                        </variation>
+                                                        <connections>
+                                                            <action selector="digitsTouched:" destination="BYZ-38-t0r" eventType="touchUpInside" id="XZE-GT-5xX"/>
+                                                        </connections>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8ka-eu-nht">
+                                                        <rect key="frame" x="427" y="0.0" width="132.5" height="87"/>
+                                                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="60" id="89i-ok-HVg"/>
+                                                            <constraint firstAttribute="width" constant="60" id="yBY-og-nCy"/>
+                                                        </constraints>
+                                                        <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                        <state key="normal" title="6"/>
+                                                        <variation key="default">
+                                                            <mask key="constraints">
+                                                                <exclude reference="89i-ok-HVg"/>
+                                                                <exclude reference="yBY-og-nCy"/>
+                                                            </mask>
+                                                        </variation>
+                                                        <connections>
+                                                            <action selector="digitsTouched:" destination="BYZ-38-t0r" eventType="touchUpInside" id="rnq-Nf-SW3"/>
+                                                        </connections>
+                                                    </button>
+                                                </subviews>
+                                            </stackView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="7IB-ut-0uY">
+                                                <rect key="frame" x="0.0" y="291" width="560" height="87.5"/>
+                                                <subviews>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2Sq-Ng-Pee">
+                                                        <rect key="frame" x="0.0" y="0.0" width="132.5" height="87.5"/>
+                                                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="60" id="48m-JH-Avc"/>
+                                                            <constraint firstAttribute="width" constant="60" id="Ruq-Hq-K20"/>
+                                                        </constraints>
+                                                        <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                        <state key="normal" title="save"/>
+                                                        <variation key="default">
+                                                            <mask key="constraints">
+                                                                <exclude reference="48m-JH-Avc"/>
+                                                                <exclude reference="Ruq-Hq-K20"/>
+                                                            </mask>
+                                                        </variation>
+                                                        <connections>
+                                                            <action selector="save" destination="BYZ-38-t0r" eventType="touchUpInside" id="phv-5j-Cdd"/>
+                                                        </connections>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zmH-pg-mT4">
+                                                        <rect key="frame" x="142" y="0.0" width="132.5" height="87.5"/>
+                                                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="60" id="U7R-6P-KoU"/>
+                                                            <constraint firstAttribute="width" constant="60" id="ftp-4O-IhF"/>
+                                                        </constraints>
+                                                        <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                        <state key="normal" title="1"/>
+                                                        <variation key="default">
+                                                            <mask key="constraints">
+                                                                <exclude reference="U7R-6P-KoU"/>
+                                                                <exclude reference="ftp-4O-IhF"/>
+                                                            </mask>
+                                                        </variation>
+                                                        <connections>
+                                                            <action selector="digitsTouched:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Ewc-XR-gS1"/>
+                                                        </connections>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cGl-In-U7U">
+                                                        <rect key="frame" x="285" y="0.0" width="132.5" height="87.5"/>
+                                                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" constant="60" id="Knc-cN-sKp"/>
+                                                            <constraint firstAttribute="height" constant="60" id="rom-0U-waJ"/>
+                                                        </constraints>
+                                                        <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                        <state key="normal" title="2"/>
+                                                        <variation key="default">
+                                                            <mask key="constraints">
+                                                                <exclude reference="Knc-cN-sKp"/>
+                                                                <exclude reference="rom-0U-waJ"/>
+                                                            </mask>
+                                                        </variation>
+                                                        <connections>
+                                                            <action selector="digitsTouched:" destination="BYZ-38-t0r" eventType="touchUpInside" id="1lR-nx-68U"/>
+                                                        </connections>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bK5-AP-JGr">
+                                                        <rect key="frame" x="427" y="0.0" width="132.5" height="87.5"/>
+                                                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="60" id="3qt-gk-ji9"/>
+                                                            <constraint firstAttribute="width" constant="60" id="tvc-RW-6mA"/>
+                                                        </constraints>
+                                                        <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                        <state key="normal" title="3"/>
+                                                        <variation key="default">
+                                                            <mask key="constraints">
+                                                                <exclude reference="3qt-gk-ji9"/>
+                                                                <exclude reference="tvc-RW-6mA"/>
+                                                            </mask>
+                                                        </variation>
+                                                        <connections>
+                                                            <action selector="digitsTouched:" destination="BYZ-38-t0r" eventType="touchUpInside" id="SAI-hT-eLP"/>
+                                                        </connections>
+                                                    </button>
+                                                </subviews>
+                                            </stackView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="TCQ-Px-9cZ">
+                                                <rect key="frame" x="0.0" y="389" width="560" height="87"/>
+                                                <subviews>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RCu-OP-VNs">
+                                                        <rect key="frame" x="0.0" y="0.0" width="132.5" height="87"/>
+                                                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="60" id="RGL-bA-gAI"/>
+                                                            <constraint firstAttribute="width" constant="60" id="TOJ-nn-EES"/>
+                                                        </constraints>
+                                                        <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                        <state key="normal" title="restore"/>
+                                                        <variation key="default">
+                                                            <mask key="constraints">
+                                                                <exclude reference="RGL-bA-gAI"/>
+                                                                <exclude reference="TOJ-nn-EES"/>
+                                                            </mask>
+                                                        </variation>
+                                                        <connections>
+                                                            <action selector="restore" destination="BYZ-38-t0r" eventType="touchUpInside" id="M8o-MW-kE3"/>
+                                                        </connections>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3Wf-7K-uvq">
+                                                        <rect key="frame" x="142" y="0.0" width="132.5" height="87"/>
+                                                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" constant="60" id="Sp8-Jx-dVy"/>
+                                                            <constraint firstAttribute="height" constant="60" id="jhW-0R-DDE"/>
+                                                        </constraints>
+                                                        <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                        <state key="normal" title="."/>
+                                                        <variation key="default">
+                                                            <mask key="constraints">
+                                                                <exclude reference="Sp8-Jx-dVy"/>
+                                                                <exclude reference="jhW-0R-DDE"/>
+                                                            </mask>
+                                                        </variation>
+                                                        <connections>
+                                                            <action selector="operationTouched:" destination="BYZ-38-t0r" eventType="touchUpInside" id="L9S-4U-9Ey"/>
+                                                        </connections>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8da-2U-hJQ">
+                                                        <rect key="frame" x="285" y="0.0" width="132.5" height="87"/>
+                                                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="60" id="TKp-fV-soQ"/>
+                                                            <constraint firstAttribute="width" constant="60" id="gc7-hE-1sd"/>
+                                                        </constraints>
+                                                        <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                        <state key="normal" title="0"/>
+                                                        <variation key="default">
+                                                            <mask key="constraints">
+                                                                <exclude reference="TKp-fV-soQ"/>
+                                                                <exclude reference="gc7-hE-1sd"/>
+                                                            </mask>
+                                                        </variation>
+                                                        <connections>
+                                                            <action selector="digitsTouched:" destination="BYZ-38-t0r" eventType="touchUpInside" id="fOR-pP-qcV"/>
+                                                        </connections>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3oQ-NK-qVr">
+                                                        <rect key="frame" x="427" y="0.0" width="132.5" height="87"/>
+                                                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" constant="60" id="edF-Zb-ID3"/>
+                                                            <constraint firstAttribute="height" constant="60" id="uaF-dw-6rL"/>
+                                                        </constraints>
+                                                        <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                        <state key="normal" title="="/>
+                                                        <variation key="default">
+                                                            <mask key="constraints">
+                                                                <exclude reference="edF-Zb-ID3"/>
+                                                                <exclude reference="uaF-dw-6rL"/>
+                                                            </mask>
+                                                        </variation>
+                                                        <connections>
+                                                            <action selector="operationTouched:" destination="BYZ-38-t0r" eventType="touchUpInside" id="J48-px-Eh6"/>
+                                                        </connections>
+                                                    </button>
+                                                </subviews>
+                                            </stackView>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="3zn-BJ-CdF" firstAttribute="height" secondItem="dzV-j3-WgC" secondAttribute="height" multiplier="0.15" id="wSL-8p-RUf"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="dzV-j3-WgC" secondAttribute="trailing" id="CNx-D3-OE3"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="dzV-j3-WgC" secondAttribute="bottom" constant="8" symbolic="YES" id="HfN-dy-sH5"/>
+                            <constraint firstItem="dzV-j3-WgC" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="PTb-yo-rhP"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="dzV-j3-WgC" secondAttribute="leading" id="bEw-rA-gR0"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="displayLabel" destination="3zn-BJ-CdF" id="bep-fO-MW7"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="245" y="349"/>
         </scene>
     </scenes>
 </document>
