@@ -12,4 +12,5 @@ protocol CalculatorCoreProtocol {
     var result: Double{get}
     func setOperand(operand: Double)
     func performOperation(operation: String)
+    func addUinaryOperation(symbol: String, operation:(Double) -> Double)
 }

@@ -8,11 +8,23 @@
 
 import UIKit
 
+var calculateCount = 0
 class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        calculateCount += 1
+        print("calculator into the heap (count \(calculateCount))")
+        Calculator.addUinaryOperation("Z") {[weak weakSelf = self] in
+            weakSelf?.displayLabel.textColor = UIColor.redColor()
+            return sqrt($0)
+        }
+    }
+    
+    deinit{
+        calculateCount -= 1
+        print("calculator leave the heap (count \(calculateCount))")
     }
 
     @IBOutlet private weak var displayLabel: UILabel!
